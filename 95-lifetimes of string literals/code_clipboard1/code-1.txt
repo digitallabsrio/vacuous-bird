@@ -1,0 +1,12 @@
+struct Person {
+    name: &str,
+    age: i32,
+}
+
+fn main() {
+    let michael = Person {
+        name: "Michael",
+        age: 35,
+    };
+    println!("{} is {} years old", michael.name, michael.age);
+}

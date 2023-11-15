@@ -1,0 +1,6 @@
+let x = 5;
+let x = 6;
+if x == 6 {
+    let x = 7;
+}
+let x = 8;

@@ -1,0 +1,67 @@
+enum Job {
+    Teacher,
+    Scientist,
+}
+
+struct Person {
+    name: String,
+    job: Job,
+}
+
+impl Person {
+    fn is_teacher(&self) -> bool {
+        match self.job {
+            Job::Teacher => true,
+            Job::Scientist => false,
+        }
+    }
+
+    fn greeting(&self) -> String {
+        match self.job {
+            Job::Teacher => {
+                format!("Hello, you're a teacher named {}", self.name)
+            },
+            Job::Scientist => {
+                format!("Hello, you're a scientist named {}", self.name)
+            },
+        }
+    }
+}
+
+fn main() {
+    let rick = Person {
+        name: "Rick".to_owned(),
+        job: Job::Scientist(Field::Physics),
+    };
+    assert!(!rick.is_teacher());
+    assert_eq!(
+        "Hello, you're a physicist named Rick".to_owned(),
+        rick.greeting(),
+    );
+
+    println!("Success, I'm pickle Rick!");
+    
+    let betty = Person {
+        name: "Dr. Betty Ross".to_owned(),
+        job: Job::Scientist(Field::Biology),
+    };
+    assert!(!betty.is_teacher());
+    assert_eq!(
+        "Hello, you're a biologist named Dr. Betty Ross".to_owned(),
+        betty.greeting(),
+    );
+
+    println!("Success, I'm Betty from The Hulk!");
+    
+    let frizzle = Person {
+        name: "Ms. Frizzle".to_owned(),
+        job: Job::Teacher,
+    };
+    assert!(frizzle.is_teacher());
+    assert_eq!(
+        "Hello, you're a teacher named Ms. Frizzle".to_owned(),
+        frizzle.greeting(),
+    );
+    
+    println!("Success! Back to the bus, kids!");
+}

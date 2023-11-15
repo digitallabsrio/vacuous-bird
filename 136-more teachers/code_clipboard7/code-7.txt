@@ -1,0 +1,20 @@
+enum CongressPerson {
+    Representative(State, District),
+    Senator(State, Seniority),
+}
+
+enum State {
+    Alabama,
+    Alaska,
+    // this could take a while
+    Wyoming,
+}
+
+struct District {
+    number: u32,
+}
+
+enum Seniority {
+    Junior,
+    Senior,
+}

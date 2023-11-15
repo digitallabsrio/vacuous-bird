@@ -1,0 +1,13 @@
+fn greeting(&self) -> String {
+    match self.job {
+        Job::Teacher(Subject::Art) => {
+            format!("Hello, you're an art teacher named {}", self.name)
+        }
+        Job::Teacher(Subject::Math) => {
+            format!("Hello, you're a math teacher named {}", self.name)
+        }
+        Job::Scientist => {
+            format!("Hello, you're a scientist named {}", self.name)
+        }
+    }
+}

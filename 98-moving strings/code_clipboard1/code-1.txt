@@ -1,0 +1,2 @@
+greet(full_name.clone()); // first call
+greet(full_name); // second call

@@ -1,0 +1,8 @@
+match self.job {
+    Job::Teacher => {
+        format!("Hello, you're a teacher named {}", self.name)
+    }
+    Job::Scientist => {
+        format!("Hello, you're a scientist named {}", self.name)
+    }
+}

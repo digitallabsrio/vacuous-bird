@@ -1,0 +1,5 @@
+fn main() {
+    println!("Hello, world!");
+    println!("Still alive!");
+    println!("I'm tired, good night!");
+}

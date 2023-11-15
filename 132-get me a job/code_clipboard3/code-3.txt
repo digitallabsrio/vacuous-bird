@@ -1,0 +1,7 @@
+fn main() {
+    let alice = Person {
+        name: "Alice".to_owned(),
+        age: 30,
+        job: Job::Scientist,
+    };
+}

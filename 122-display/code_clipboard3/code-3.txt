@@ -1,0 +1,5 @@
+use std::fmt::Display;
+
+fn stringy<T: Display>(x: T) -> String {
+    format!("{}", x)
+}

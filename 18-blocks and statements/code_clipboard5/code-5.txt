@@ -1,0 +1,8 @@
+fn main() {
+    let x: i32 = {
+        println!("I'm inside a block");
+        println!("Still inside");
+        4 + 5
+    };
+    println!("4 + 5 == {}", x);
+}

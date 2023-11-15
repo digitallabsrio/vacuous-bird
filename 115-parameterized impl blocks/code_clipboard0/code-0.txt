@@ -1,0 +1,5 @@
+impl<T> Person<String, T> {
+    fn greet(&self) {
+        println!("Hello, {}", self.name);
+    }
+}

@@ -1,0 +1,9 @@
+impl Person {
+    fn is_teacher(&self) -> bool {
+        match self.job {
+            Job::ArtTeacher => true,
+            Job::MathTeacher => true,
+            Job::Scientist => false,
+        }
+    }
+}

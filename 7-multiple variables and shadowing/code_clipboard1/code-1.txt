@@ -1,0 +1,6 @@
+fn main() {
+    let x = 5 + 3;
+    let y = 2 - 1;
+    let z = x * y;
+    println!("The answer is {}", z);
+}

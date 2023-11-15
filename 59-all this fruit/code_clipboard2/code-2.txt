@@ -1,0 +1,3 @@
+fn price_fruit(apples: i32, bananas: i32) -> i32 {
+    apples * 8 + bananas * 12
+}

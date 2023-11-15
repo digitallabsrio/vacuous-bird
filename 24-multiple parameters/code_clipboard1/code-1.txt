@@ -1,0 +1,9 @@
+fn greet() {
+    println!("This isn't going to work yet");
+}
+
+fn main() {
+    greet("Alice", 10);
+    greet("Bob", 8);
+    greet("Charlie", 6);
+}

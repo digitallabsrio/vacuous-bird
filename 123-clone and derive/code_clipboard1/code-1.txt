@@ -1,0 +1,8 @@
+impl Fruit {
+    fn clone(&self) -> Fruit {
+        Fruit {
+            apples: self.apples.clone(),
+            bananas: self.bananas.clone(),
+        }
+    }
+}

@@ -1,0 +1,10 @@
+fn triple(mut x: i32) {
+    x *= 3;
+}
+
+fn main() {
+    let mut x = 5;
+    triple(x);
+    assert_eq!(x, 15);
+    println!("Success!");
+}

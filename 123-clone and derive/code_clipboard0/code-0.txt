@@ -1,0 +1,17 @@
+struct Fruit {
+    apples: i32,
+    bananas: i32,
+}
+
+// Should use a reference, but I'm proving a point
+fn print_fruit(fruit: Fruit) {
+    println!("Apples: {}, bananas: {}", fruit.apples, fruit.bananas);
+}
+
+fn main() {
+    let mut fruit = Fruit { apples: 5, bananas: 10 };
+    print_fruit(fruit); // moved here
+    fruit.apples *= 2; // this will fail
+    fruit.bananas *= 3;
+    print_fruit(fruit);
+}

@@ -1,0 +1,5 @@
+#[allow(unused_variables, unused_mut)]
+fn total_length(a: &str, b: &str) -> usize {
+  // Your code goes here!
+  0
+}

@@ -1,0 +1,4 @@
+fn main() {
+    greet("Michael");
+    greet("Miriam");
+}

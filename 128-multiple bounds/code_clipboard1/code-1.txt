@@ -1,0 +1,1 @@
+fn info<T: Double>(x: T)

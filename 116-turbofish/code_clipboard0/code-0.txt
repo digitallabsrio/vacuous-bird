@@ -1,0 +1,20 @@
+struct Fruit<T> {
+    apples: T,
+    bananas: T,
+}
+
+impl Fruit<i32> {
+    fn new() -> Self {
+        Fruit {
+            apples: 5,
+            bananas: 10,
+        }
+    }
+}
+
+fn main() {
+    let fruit = Fruit::new();
+    assert_eq!(fruit.apples, 5);
+    assert_eq!(fruit.bananas, 10);
+    println!("Success!");
+}

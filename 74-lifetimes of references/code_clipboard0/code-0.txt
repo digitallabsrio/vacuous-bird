@@ -1,0 +1,7 @@
+fn main() {
+    let x: &i32 = {
+        let y = 5;
+        &y
+    };
+    println!("x == {}", x);
+}

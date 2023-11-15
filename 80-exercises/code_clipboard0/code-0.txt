@@ -1,0 +1,9 @@
+fn is_five(x: &i32) -> bool {
+    x == 5
+}
+
+fn main() {
+    assert!(is_five(&5));
+    assert!(!is_five(&6));
+    println!("Success!");
+}

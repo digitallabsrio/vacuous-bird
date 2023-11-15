@@ -1,0 +1,10 @@
+fn sum(low: i32, high: i32) -> i32 {
+    unimplemented!()
+}
+
+fn main() {
+    assert_eq!(3, sum(1, 2));
+    assert_eq!(2, sum(2, 2));
+    assert_eq!(55, sum(1, 10));
+    println!("Success!");
+}

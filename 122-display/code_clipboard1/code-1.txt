@@ -1,0 +1,3 @@
+fn stringy<T>(x: T) -> String {
+    format!("{}", x)
+}

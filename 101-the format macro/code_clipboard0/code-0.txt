@@ -1,0 +1,6 @@
+fn main() {
+    let name = "Michael";
+    let age = 35;
+    let message = format!("My name is {} and I am {} years old", name, age);
+    println!("{}", message);
+}

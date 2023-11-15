@@ -1,0 +1,12 @@
+fn add(/* FIXME */) -> i32 {
+    x + y
+}
+
+fn double(x: i32) -> i32 {
+    unimplemented!()
+}
+
+fn main() {
+    assert_eq!(double(5), 10);
+    println!("Success!");
+}

@@ -1,0 +1,5 @@
+#[allow(unused_variables, unused_mut)]
+fn reverse(numbers: &[i32]) -> Vec<i32>{
+   // Write code here!
+   [].to_vec()
+}

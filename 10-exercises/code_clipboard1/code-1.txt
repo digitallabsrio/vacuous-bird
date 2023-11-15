@@ -1,0 +1,6 @@
+fn main() {
+    let x: FIXME = -5;
+    let y: FIXME = 7;
+    let name: FIXME = "Michael";
+    println!("My name is {}, and the answer is {}", name, x * y);
+}

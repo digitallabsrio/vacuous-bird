@@ -1,0 +1,6 @@
+fn main() {
+    let apples = 10;
+    println!("apples == {}", apples);
+    let apples = 20;
+    println!("apples == {}", apples);
+}

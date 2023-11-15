@@ -1,0 +1,6 @@
+fn main() {
+    assert_eq!(42.to_string(), "42".to_owned());
+    assert_eq!(true.to_string(), "true".to_owned());
+    assert_eq!("hello".to_string(), "hello".to_owned());
+    println!("Success!");
+}

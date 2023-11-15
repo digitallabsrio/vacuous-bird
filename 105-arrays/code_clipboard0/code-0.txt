@@ -1,0 +1,5 @@
+fn main() {
+    let numbers = [2, 3, 8, 1, 9];
+
+    println!("{:?}", numbers);
+}

@@ -1,0 +1,2 @@
+let price = price_fruit(fruit);
+println!("I can make {} cents", price);

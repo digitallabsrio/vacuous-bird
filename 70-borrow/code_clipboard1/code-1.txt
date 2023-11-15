@@ -1,0 +1,1 @@
+let fruit = print_fruit(fruit);

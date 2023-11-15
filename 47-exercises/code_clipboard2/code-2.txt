@@ -1,0 +1,14 @@
+fn comment(apples: i32) {
+    let message = if apples > 10 {
+        "lots of"
+    } else {
+        "very few"
+    };
+
+    println!("You have {} apples", message);
+}
+
+fn main() {
+    comment(5);
+    comment(100);
+}

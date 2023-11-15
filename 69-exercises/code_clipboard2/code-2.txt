@@ -1,0 +1,12 @@
+struct point {
+    X: i32,
+    Y: i32,
+}
+
+fn PrintPoint(Point: point) {
+    println!("x == {}, y == {}", Point.X, Point.Y);
+}
+
+fn main() {
+    PrintPoint(point { X: 3, Y: -6 });
+}

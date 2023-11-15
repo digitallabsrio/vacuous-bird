@@ -1,0 +1,6 @@
+fn count_fruit(fruit: Fruit) {
+    println!(
+        "I've got {} apples and {} bananas",
+        fruit.apples, fruit.bananas
+    );
+}

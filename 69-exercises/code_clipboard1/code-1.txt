@@ -1,0 +1,44 @@
+struct Fruit {
+    apples: i32,
+    bananas: i32,
+}
+
+struct FruitAndPrice {
+    fruit: Fruit,
+    // FIXME
+}
+
+fn count_fruit(fruit: Fruit) -> Fruit {
+    println!(
+        "I've got {} apples and {} bananas",
+        fruit.apples, fruit.bananas
+    );
+    // FIXME
+}
+
+fn price_fruit(fruit: Fruit) -> FruitAndPrice {
+    let price = fruit.apples * 8 + fruit.bananas * 12;
+    // FIXME you need to make a FruitAndPrice value here
+}
+
+fn increase_fruit(/* FIXME */ fruit: Fruit) -> Fruit {
+    fruit.apples *= 2;
+    fruit.bananas *= 3;
+    // FIXME
+}
+
+fn main() {
+    let fruit = Fruit {
+        apples: 10,
+        bananas: 5,
+    };
+
+    let fruit = count_fruit(fruit);
+
+    let fruit_and_price = price_fruit(fruit);
+    println!("Original price: {}", fruit_and_price.price);
+
+    let fruit = increase_fruit(fruit_and_price.fruit);
+    let fruit_and_price = price_fruit(fruit);
+    println!("I can make {} cents for more fruit", fruit_and_price.price);
+}

@@ -1,0 +1,4 @@
+struct Fruit {
+    apples: u32,
+    bananas: u32,
+}

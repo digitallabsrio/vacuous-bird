@@ -1,0 +1,3 @@
+fn quadruple<T: Double>(x: T) -> T {
+    x.double().double()
+}

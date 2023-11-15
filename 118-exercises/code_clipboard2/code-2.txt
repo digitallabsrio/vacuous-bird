@@ -1,0 +1,22 @@
+struct Fruit<T> {
+    apples: T,
+    bananas: T,
+}
+
+impl Fruit<i32> {
+    fn new() -> Self {
+        Fruit {
+            apples: 5,
+            bananas: 10,
+        }
+    }
+    // FIXME add the method here
+}
+
+fn main() {
+    let fruit_i32: Fruit<i32> = Fruit::new();
+    let fruit_str: Fruit<String> = fruit_i32.stringy();
+    assert_eq!(fruit_str.apples, "5".to_owned());
+    assert_eq!(fruit_str.bananas, "10".to_owned());
+    println!("Success!");
+}

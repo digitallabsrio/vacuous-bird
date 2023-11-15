@@ -1,0 +1,3 @@
+fn increase_fruit(fruit: Fruit) -> Fruit {
+    unimplemented!()
+}

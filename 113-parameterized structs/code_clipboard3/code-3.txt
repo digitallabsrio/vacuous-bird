@@ -1,0 +1,21 @@
+struct Fruit<T> {
+    apples: T,
+    bananas: T,
+}
+
+fn main() {
+    let _fruit32: Fruit<i32> = Fruit {
+        apples: 5_i32,
+        bananas: 10_i32,
+    };
+
+    let _fruit64: Fruit<i64> = Fruit {
+        apples: 5_i64,
+        bananas: 10_i64,
+    };
+
+    let _fruitstr: Fruit<String> = Fruit {
+        apples: "5".to_owned(),
+        bananas: "10".to_owned(),
+    };
+}

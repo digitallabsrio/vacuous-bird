@@ -1,0 +1,4 @@
+fn increase_fruit(fruit: Fruit) -> Fruit {
+    fruit.apples *= 2;
+    fruit // return it from the function
+}

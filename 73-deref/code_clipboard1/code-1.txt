@@ -1,0 +1,10 @@
+fn main() {
+    let x: i32 = 5;
+    let mut y: i32 = 6;
+
+    let z: &mut i32 = &mut y;
+    z -= 1;
+
+    assert_eq!(x, y);
+    println!("Success");
+}

@@ -1,0 +1,10 @@
+fn pays_full_price(age: u32) -> bool {
+    !(age < 18 || age >= 65)
+}
+
+fn main() {
+    assert!(!pays_full_price(17));
+    assert!(pays_full_price(18));
+    assert!(pays_full_price(64));
+    assert!(!pays_full_price(65));
+}

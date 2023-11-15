@@ -1,0 +1,18 @@
+fn main() {
+    let alice = Person {
+        name: "Alice".to_owned(),
+        age: 30_u32,
+    };
+    greet(&alice);
+
+    let bob = Person {
+        name: "Bob",
+        age: 35_u64,
+    };
+    greet(&bob);
+}
+
+struct Person<Name, Age> {
+    name: Name,
+    age: Age,
+}

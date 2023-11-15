@@ -1,0 +1,13 @@
+struct Fruit<T> {
+    apples: T,
+    bananas: T,
+}
+
+impl Double for Fruit {
+    fn double(&self) -> Self {
+        Fruit {
+            apples: self.apples.double(),
+            bananas: self.bananas.double(),
+        }
+    }
+}

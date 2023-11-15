@@ -1,0 +1,9 @@
+#[derive(Clone)]
+struct Fruit<T> {
+    apples: T,
+    bananas: T,
+}
+
+impl<T: Copy> Copy for Fruit<T> {}
+
+fn main() {} // dummy main

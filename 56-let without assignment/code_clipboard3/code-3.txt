@@ -1,0 +1,7 @@
+let x;
+
+if is_raining() {
+    x = 5;
+}
+
+println!("x == {}", x);

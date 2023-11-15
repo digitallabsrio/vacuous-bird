@@ -1,0 +1,9 @@
+fn say_hi(name: String) {
+    println!("Hi {}", name);
+}
+
+fn main() {
+    let name = "Michael".to_owned();
+    say_hi(name);
+    say_hi(name);
+}

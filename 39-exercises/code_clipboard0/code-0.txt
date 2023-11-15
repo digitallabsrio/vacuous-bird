@@ -1,0 +1,3 @@
+fn can_drive(name: &str, age: u32) -> bool {
+  true
+}

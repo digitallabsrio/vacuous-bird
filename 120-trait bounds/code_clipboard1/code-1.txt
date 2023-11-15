@@ -1,0 +1,8 @@
+fn quadruple<T>(x: T) -> T {
+    x.double().double()
+}
+
+fn main() {
+    println!("quadruple 5_i32 == {}", quadruple(5_i32));
+    println!("quadruple 5_i64 == {}", quadruple(5_i64));
+}

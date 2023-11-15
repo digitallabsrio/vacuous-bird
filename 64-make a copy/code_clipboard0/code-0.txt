@@ -1,0 +1,14 @@
+fn main() {
+    let fruit1 = Fruit {
+        apples: 10,
+        bananas: 5,
+    };
+    count_fruit(fruit1);
+
+    let fruit2 = Fruit {
+        apples: 10,
+        bananas: 5,
+    };
+    let price = price_fruit(fruit2);
+    println!("I can make {} cents", price);
+}

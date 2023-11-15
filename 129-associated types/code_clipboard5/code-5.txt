@@ -1,0 +1,13 @@
+impl InThreeHours for Kmh {
+    type Distance = Km;
+    fn in_three_hours(&self) -> Km {
+        Km { value: self.value * 3 }
+    }
+}
+
+impl InThreeHours for Mph {
+    type Distance = Miles;
+    fn in_three_hours(&self) -> Miles {
+        Miles { value: self.value * 3 }
+    }
+}

@@ -1,0 +1,6 @@
+fn increase_fruit(fruit: Fruit) -> Fruit {
+    Fruit {
+        apples: fruit.apples * 2,
+        bananas: fruit.bananas * 3,
+    }
+}

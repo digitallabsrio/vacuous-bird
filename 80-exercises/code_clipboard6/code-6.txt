@@ -1,0 +1,30 @@
+struct RunningTotal {
+    total: i32,
+    count: i32,
+}
+
+fn new_running_total() -> RunningTotal {
+    // FIXME
+}
+
+fn print_average(rt: &RunningTotal) {
+    // FIXME
+}
+
+fn add_value(rt: /* FIXME */ RunningTotal, value: i32) {
+    rt.total += value;
+    rt.count += 1;
+}
+
+fn main() {
+    let mut rt = new_running_total();
+
+    print_average(/* FIXME, and below */ rt);
+
+    add_value(rt, 5);
+    add_value(rt, 3);
+    print_average(rt);
+
+    add_value(rt, 10);
+    print_average(rt);
+}

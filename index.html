@@ -1,0 +1,2518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    :root {
+      --docsifytabs-border-color: #ededed;
+      --docsifytabs-border-px: 1px;
+      --docsifytabs-border-radius-px: ;
+      --docsifytabs-margin: 1.5em 0;
+      --docsifytabs-tab-background: #f8f8f8;
+      --docsifytabs-tab-background--active: var(--docsifytabs-content-background);
+      --docsifytabs-tab-color: #999;
+      --docsifytabs-tab-color--active: inherit;
+      --docsifytabs-tab-highlight-px: 3px;
+      --docsifytabs-tab-highlight-color: var(--theme-color, currentColor);
+      --docsifytabs-tab-padding: 0.6em 1em;
+      --docsifytabs-content-background: inherit;
+      --docsifytabs-content-padding: 1.5rem
+    }
+
+    .docsify-tabs:before,
+    .docsify-tabs__tab {
+      z-index: 1
+    }
+
+    .docsify-tabs__tab--active,
+    .docsify-tabs__tab:focus {
+      z-index: 2
+    }
+
+    .docsify-tabs {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      position: relative
+    }
+
+    .docsify-tabs:before {
+      -ms-flex-order: 0;
+      content: "";
+      -ms-flex: 1 1;
+      flex: 1 1;
+      order: 0
+    }
+
+    .docsify-tabs__tab {
+      -ms-flex-order: -1;
+      appearance: none;
+      font-size: inherit;
+      margin: 0;
+      order: -1;
+      position: relative
+    }
+
+    .docsify-tabs__content[class] {
+      height: 0;
+      overflow: hidden;
+      position: absolute;
+      visibility: hidden;
+      width: 100%
+    }
+
+    .docsify-tabs__content[class]>:first-child {
+      margin-top: 0
+    }
+
+    .docsify-tabs__content[class]>:last-child {
+      margin-bottom: 0
+    }
+
+    .docsify-tabs__tab--active+.docsify-tabs__content[class] {
+      height: auto;
+      overflow: auto;
+      position: relative;
+      visibility: visible
+    }
+
+    [class*=docsify-tabs--] {
+      margin: 1.5em 0;
+      margin: var(--docsifytabs-margin)
+    }
+
+    [class*=docsify-tabs--]>.docsify-tabs__tab {
+      background: #f8f8f8;
+      background: var(--docsifytabs-tab-background);
+      color: #999;
+      color: var(--docsifytabs-tab-color);
+      padding: .6em 1em;
+      padding: var(--docsifytabs-tab-padding)
+    }
+
+    [class*=docsify-tabs--]>.docsify-tabs__tab--active {
+      background: inherit;
+      background: var(--docsifytabs-tab-background--active);
+      color: inherit;
+      color: var(--docsifytabs-tab-color--active)
+    }
+
+    [class*=docsify-tabs--]>.docsify-tabs__content {
+      background: inherit;
+      background: var(--docsifytabs-content-background)
+    }
+
+    [class*=docsify-tabs--]>.docsify-tabs__tab--active+.docsify-tabs__content {
+      padding: 1.5rem;
+      padding: var(--docsifytabs-content-padding)
+    }
+
+    .docsify-tabs--classic:before,
+    .docsify-tabs--classic>.docsify-tabs__content,
+    .docsify-tabs--classic>.docsify-tabs__tab {
+      border-color: #ededed;
+      border-color: var(--docsifytabs-border-color);
+      border-style: solid;
+      border-width: 1px;
+      border-width: var(--docsifytabs-border-px)
+    }
+
+    .docsify-tabs--classic:before {
+      border-left-width: 0;
+      border-right-width: 0;
+      border-top-width: 0;
+      margin-right: 1px;
+      margin-right: var(--docsifytabs-border-px)
+    }
+
+    .docsify-tabs--classic>.docsify-tabs__tab:first-of-type {
+      border-top-left-radius: var(--docsifytabs-border-radius-px)
+    }
+
+    .docsify-tabs--classic>.docsify-tabs__tab:last-of-type {
+      border-top-right-radius: var(--docsifytabs-border-radius-px)
+    }
+
+    .docsify-tabs--classic>.docsify-tabs__tab~.docsify-tabs__tab {
+      margin-left: -1px;
+      margin-left: calc(0px - var(--docsifytabs-border-px))
+    }
+
+    .docsify-tabs--classic>.docsify-tabs__tab--active {
+      border-bottom-width: 0;
+      box-shadow: inset 0 3px 0 0 currentColor;
+      box-shadow: inset 0 var(--docsifytabs-tab-highlight-px) 0 0 var(--docsifytabs-tab-highlight-color)
+    }
+
+    .docsify-tabs--classic>.docsify-tabs__content {
+      border-radius: 0;
+      border-radius: 0 var(--docsifytabs-border-radius-px) var(--docsifytabs-border-radius-px) var(--docsifytabs-border-radius-px);
+      border-top: 0;
+      margin-top: -1px;
+      margin-top: calc(0px - var(--docsifytabs-border-px))
+    }
+
+    .docsify-tabs--material>.docsify-tabs__tab {
+      background: transparent;
+      border: 0;
+      margin-bottom: 2px;
+      margin-bottom: calc(var(--docsifytabs-tab-highlight-px) - var(--docsifytabs-border-px))
+    }
+
+    .docsify-tabs--material>.docsify-tabs__tab--active {
+      background: transparent;
+      box-shadow: 0 3px 0 0 currentColor;
+      box-shadow: 0 var(--docsifytabs-tab-highlight-px) 0 0 var(--docsifytabs-tab-highlight-color)
+    }
+
+    .docsify-tabs--material>.docsify-tabs__content {
+      border-color: #ededed;
+      border-color: var(--docsifytabs-border-color);
+      border-style: solid;
+      border-width: 1px 0;
+      border-width: var(--docsifytabs-border-px) 0
+    }
+  </style>
+  <!-- UPDATE: Add description, author, og:site_name, og:title, and og:description text for your course. -->
+  <!-- NOTE: Text presented in ALL_CAPS indicate values you should replace. -->
+  <title>Project</title>
+  <link rel="stylesheet" href="/vacuous-bird/static/vue.css">
+  <link rel="stylesheet" href="/vacuous-bird/static/style.min.css" title="docsify-darklight-theme" type="text/css">
+  <style type="text/css">
+    .docsify-copy-code-button,
+    .docsify-copy-code-button span {
+      cursor: pointer;
+      transition: all .25s ease
+    }
+
+    .docsify-copy-code-button {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      overflow: visible;
+      padding: .65em .8em;
+      border: 0;
+      border-radius: 0;
+      outline: 0;
+      font-size: 1em;
+      background: grey;
+      background: var(--theme-color, grey);
+      color: #fff;
+      opacity: 0
+    }
+
+    .docsify-copy-code-button span {
+      border-radius: 3px;
+      background: inherit;
+      pointer-events: none
+    }
+
+    .docsify-copy-code-button .error,
+    .docsify-copy-code-button .success {
+      position: absolute;
+      z-index: -100;
+      top: 50%;
+      right: 0;
+      padding: .5em .65em;
+      font-size: .825em;
+      opacity: 0;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%)
+    }
+
+    .docsify-copy-code-button.error .error,
+    .docsify-copy-code-button.success .success {
+      right: 100%;
+      opacity: 1;
+      -webkit-transform: translate(-115%, -50%);
+      transform: translate(-115%, -50%)
+    }
+
+    .docsify-copy-code-button:focus,
+    pre:hover .docsify-copy-code-button {
+      opacity: 1
+    }
+  </style>
+  <style type="text/css">
+    .alert {
+      word-wrap: break-word;
+      display: block;
+      margin-bottom: 1rem !important;
+      padding: .75rem 1.25rem !important;
+      position: relative;
+      word-break: break-word
+    }
+
+    .alert>* {
+      max-width: 100%
+    }
+
+    .alert>:first-child {
+      margin-top: 0
+    }
+
+    .alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .alert:before {
+      content: unset !important
+    }
+
+    .alert+.alert {
+      margin-top: -.25rem !important
+    }
+
+    .alert p {
+      margin-bottom: .5rem;
+      margin-top: .5rem
+    }
+
+    .alert .title {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      font-weight: 600;
+      margin: 0
+    }
+
+    .icon {
+      background-repeat: no-repeat;
+      display: inline-block;
+      height: 16px;
+      margin-right: .5rem;
+      width: 16px
+    }
+
+    .alert.callout {
+      background: var(--background);
+      border: 1px solid #eee;
+      border-left-width: .25rem;
+      border-radius: .25rem
+    }
+
+    .alert.callout.note {
+      border-left-color: #17a2b8 !important
+    }
+
+    .alert.callout.note .title {
+      color: #17a2b8
+    }
+
+    .alert.callout.note .icon-note {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='1em' height='1em' viewBox='0 0 16 16' fill='%2317a2b8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/%3E%3C/svg%3E")
+    }
+
+    .alert.callout.tip {
+      border-left-color: #28a745 !important
+    }
+
+    .alert.callout.tip .title {
+      color: #28a745
+    }
+
+    .alert.callout.tip .icon-tip {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='1em' height='1em' viewBox='0 0 352 512' fill='%2328a745' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z'/%3E%3C/svg%3E")
+    }
+
+    .alert.callout.warning {
+      border-left-color: #f0ad4e !important
+    }
+
+    .alert.callout.warning .title {
+      color: #f0ad4e
+    }
+
+    .alert.callout.warning .icon-warning {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='1em' height='1em' viewBox='0 0 17 16' fill='%23f0ad4e' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'/%3E%3C/svg%3E")
+    }
+
+    .alert.callout.attention {
+      border-left-color: #dc3545 !important
+    }
+
+    .alert.callout.attention .title {
+      color: #dc3545
+    }
+
+    .alert.callout.attention .icon-attention {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='1em' height='1em' viewBox='0 0 16 16' fill='%23dc3545' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath fill-rule='evenodd' d='M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E")
+    }
+
+    .alert.flat {
+      background-color: #e2e3e5;
+      border: 1px solid #d6d8db;
+      border-radius: .125rem;
+      color: #383d41
+    }
+
+    .alert.flat.note {
+      background-color: #cdeefd;
+      border-color: #b4e6fc;
+      color: #02587f
+    }
+
+    .alert.flat.note .title {
+      color: #01354d
+    }
+
+    .alert.flat.note .icon-note {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='1em' height='1em' viewBox='0 0 16 16' fill='%2301354d' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/%3E%3C/svg%3E")
+    }
+
+    .alert.flat.tip {
+      background-color: #dbefdc;
+      border-color: #c9e7cb;
+      color: #285b2a
+    }
+
+    .alert.flat.tip .title {
+      color: #18381a
+    }
+
+    .alert.flat.tip .icon-tip {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='1em' height='1em' viewBox='0 0 352 512' fill='%2318381a' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z'/%3E%3C/svg%3E")
+    }
+
+    .alert.flat.warning {
+      background-color: #ffddd3;
+      border-color: #ffc9ba;
+      color: #852d12
+    }
+
+    .alert.flat.warning .title {
+      color: #581e0c
+    }
+
+    .alert.flat.warning .icon-warning {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='1em' height='1em' viewBox='0 0 17 16' fill='%23581e0c' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'/%3E%3C/svg%3E")
+    }
+
+    .alert.flat.attention {
+      background-color: #fdd9d7;
+      border-color: #fcc2bf;
+      color: #7f231c
+    }
+
+    .alert.flat.attention .title {
+      color: #551713
+    }
+
+    .alert.flat.attention .icon-attention {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='1em' height='1em' viewBox='0 0 16 16' fill='%23551713' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath fill-rule='evenodd' d='M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E")
+    }
+  </style>
+  <style>
+    :root {
+      --theme-color: #126893;
+    }
+  </style>
+  <style>
+    .sidebar {
+      padding-top: 0;
+    }
+
+    .search {
+      margin-bottom: 20px;
+      padding: 6px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .search .input-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .search .results-panel {
+      display: none;
+    }
+
+    .search .results-panel.show {
+      display: block;
+    }
+
+    .search input {
+      outline: none;
+      border: none;
+      width: 100%;
+      padding: 0.6em 7px;
+      font-size: inherit;
+      border: 1px solid transparent;
+    }
+
+    .search input:focus {
+      box-shadow: 0 0 5px var(--theme-color, #42b983);
+      border: 1px solid var(--theme-color, #42b983);
+    }
+
+    .search input::-webkit-search-decoration,
+    .search input::-webkit-search-cancel-button,
+    .search input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .search input::-ms-clear {
+      display: none;
+      height: 0;
+      width: 0;
+    }
+
+    .search .clear-button {
+      cursor: pointer;
+      width: 36px;
+      text-align: right;
+      display: none;
+    }
+
+    .search .clear-button.show {
+      display: block;
+    }
+
+    .search .clear-button svg {
+      transform: scale(.5);
+    }
+
+    .search h2 {
+      font-size: 17px;
+      margin: 10px 0;
+    }
+
+    .search a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .search .matching-post {
+      border-bottom: 1px solid #eee;
+    }
+
+    .search .matching-post:last-child {
+      border-bottom: 0;
+    }
+
+    .search p {
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .search p.empty {
+      text-align: center;
+    }
+
+    .app-name.hide,
+    .sidebar-nav.hide {
+      display: none;
+    }
+  </style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+  <style></style>
+</head>
+
+<body class="ready sticky ready-fix close" data-page="Assignments/Sample_Project.md">
+  <nav class="app-nav"></nav>
+  <main><button class="sidebar-toggle" aria-label="Menu">
+      <div class="sidebar-toggle-button"><span></span><span></span><span></span></div>
+    </button>
+    <aside class="sidebar">
+      <h1 class="app-name"><a class="app-name-link" data-nosearch="" href="/"><img alt="Syllabus Template"
+            src="/vacuous-bird/static/logo-icononly.svg"></a></h1>
+      <div class="sidebar-nav">
+    <ul>
+        <li><strong><a href="/" title="Syllabus">Syllabus</a></strong></li>
+        <li><strong>Lessons</strong>
+            <ul>
+                
+                
+                <li><a href="/vacuous-bird/0-introduction/0-introduction.html" title="Introduction">Introduction</a></li>
+                
+                
+                <li><a href="/vacuous-bird/1-instructions/1-instructions.html" title="Instructions">Instructions</a></li>
+                
+                
+                <li><a href="/vacuous-bird/2-hello world/2-hello world.html" title="Hello World">Hello World</a></li>
+                
+                
+                <li><a href="/vacuous-bird/3-what does that mean/3-what does that mean.html" title="What Does That Mean">What Does That Mean</a></li>
+                
+                
+                <li><a href="/vacuous-bird/4-interpolation/4-interpolation.html" title="Interpolation">Interpolation</a></li>
+                
+                
+                <li><a href="/vacuous-bird/5-variables/5-variables.html" title="Variables">Variables</a></li>
+                
+                
+                <li><a href="/vacuous-bird/6-more math/6-more math.html" title="More Math">More Math</a></li>
+                
+                
+                <li><a href="/vacuous-bird/7-multiple variables and shadowing/7-multiple variables and shadowing.html" title="Multiple Variables And Shadowing">Multiple Variables And Shadowing</a></li>
+                
+                
+                <li><a href="/vacuous-bird/8-types/8-types.html" title="Types">Types</a></li>
+                
+                
+                <li><a href="/vacuous-bird/9-summary/9-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/10-exercises/10-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/11-introduction/11-introduction.html" title="Introduction">Introduction</a></li>
+                
+                
+                <li><a href="/vacuous-bird/12-pairing and nesting/12-pairing and nesting.html" title="Pairing And Nesting">Pairing And Nesting</a></li>
+                
+                
+                <li><a href="/vacuous-bird/13-layout/13-layout.html" title="Layout">Layout</a></li>
+                
+                
+                <li><a href="/vacuous-bird/14-comments/14-comments.html" title="Comments">Comments</a></li>
+                
+                
+                <li><a href="/vacuous-bird/15-expressions values and types/15-expressions values and types.html" title="Expressions Values And Types">Expressions Values And Types</a></li>
+                
+                
+                <li><a href="/vacuous-bird/16-variables again/16-variables again.html" title="Variables Again">Variables Again</a></li>
+                
+                
+                <li><a href="/vacuous-bird/17-effects versus results/17-effects versus results.html" title="Effects Versus Results">Effects Versus Results</a></li>
+                
+                
+                <li><a href="/vacuous-bird/18-blocks and statements/18-blocks and statements.html" title="Blocks And Statements">Blocks And Statements</a></li>
+                
+                
+                <li><a href="/vacuous-bird/19-summary/19-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/20-exercises/20-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/21-hello world again/21-hello world again.html" title="Hello World Again">Hello World Again</a></li>
+                
+                
+                <li><a href="/vacuous-bird/22-function parameters/22-function parameters.html" title="Function Parameters">Function Parameters</a></li>
+                
+                
+                <li><a href="/vacuous-bird/23-function results/23-function results.html" title="Function Results">Function Results</a></li>
+                
+                
+                <li><a href="/vacuous-bird/24-multiple parameters/24-multiple parameters.html" title="Multiple Parameters">Multiple Parameters</a></li>
+                
+                
+                <li><a href="/vacuous-bird/25-variable and parameter scope/25-variable and parameter scope.html" title="Variable And Parameter Scope">Variable And Parameter Scope</a></li>
+                
+                
+                <li><a href="/vacuous-bird/26-anatomy of a function/26-anatomy of a function.html" title="Anatomy Of A Function">Anatomy Of A Function</a></li>
+                
+                
+                <li><a href="/vacuous-bird/27-calling functions/27-calling functions.html" title="Calling Functions">Calling Functions</a></li>
+                
+                
+                <li><a href="/vacuous-bird/28-is main special/28-is main special.html" title="Is Main Special">Is Main Special</a></li>
+                
+                
+                <li><a href="/vacuous-bird/29-summary/29-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/30-exercises/30-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/31-equality/31-equality.html" title="Equality">Equality</a></li>
+                
+                
+                <li><a href="/vacuous-bird/32-assertions/32-assertions.html" title="Assertions">Assertions</a></li>
+                
+                
+                <li><a href="/vacuous-bird/33-comparison operators/33-comparison operators.html" title="Comparison Operators">Comparison Operators</a></li>
+                
+                
+                <li><a href="/vacuous-bird/34-functions returning booleans/34-functions returning booleans.html" title="Functions Returning Booleans">Functions Returning Booleans</a></li>
+                
+                
+                <li><a href="/vacuous-bird/35-the not operator/35-the not operator.html" title="The Not Operator">The Not Operator</a></li>
+                
+                
+                <li><a href="/vacuous-bird/36-not ing other comparison operators/36-not ing other comparison operators.html" title="Not Ing Other Comparison Operators">Not Ing Other Comparison Operators</a></li>
+                
+                
+                <li><a href="/vacuous-bird/37-and or/37-and or.html" title="And Or">And Or</a></li>
+                
+                
+                <li><a href="/vacuous-bird/38-summary/38-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/39-exercises/39-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/40-hello if/40-hello if.html" title="Hello If">Hello If</a></li>
+                
+                
+                <li><a href="/vacuous-bird/41-a note on semicolons/41-a note on semicolons.html" title="A Note On Semicolons">A Note On Semicolons</a></li>
+                
+                
+                <li><a href="/vacuous-bird/42-else/42-else.html" title="Else">Else</a></li>
+                
+                
+                <li><a href="/vacuous-bird/43-else if/43-else if.html" title="Else If">Else If</a></li>
+                
+                
+                <li><a href="/vacuous-bird/44-evaluating to values/44-evaluating to values.html" title="Evaluating To Values">Evaluating To Values</a></li>
+                
+                
+                <li><a href="/vacuous-bird/45-factorial and recursion/45-factorial and recursion.html" title="Factorial And Recursion">Factorial And Recursion</a></li>
+                
+                
+                <li><a href="/vacuous-bird/46-summary/46-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/47-exercises/47-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/48-while expressions loops/48-while expressions loops.html" title="While Expressions Loops">While Expressions Loops</a></li>
+                
+                
+                <li><a href="/vacuous-bird/49-failed attempt shadowing/49-failed attempt shadowing.html" title="Failed Attempt Shadowing">Failed Attempt Shadowing</a></li>
+                
+                
+                <li><a href="/vacuous-bird/50-almost correct assignment/50-almost correct assignment.html" title="Almost Correct Assignment">Almost Correct Assignment</a></li>
+                
+                
+                <li><a href="/vacuous-bird/51-more than once/51-more than once.html" title="More Than Once">More Than Once</a></li>
+                
+                
+                <li><a href="/vacuous-bird/52-counting/52-counting.html" title="Counting">Counting</a></li>
+                
+                
+                <li><a href="/vacuous-bird/53-sum/53-sum.html" title="Sum">Sum</a></li>
+                
+                
+                <li><a href="/vacuous-bird/54-nested loops/54-nested loops.html" title="Nested Loops">Nested Loops</a></li>
+                
+                
+                <li><a href="/vacuous-bird/55-mutation and shadowing/55-mutation and shadowing.html" title="Mutation And Shadowing">Mutation And Shadowing</a></li>
+                
+                
+                <li><a href="/vacuous-bird/56-let without assignment/56-let without assignment.html" title="Let Without Assignment">Let Without Assignment</a></li>
+                
+                
+                <li><a href="/vacuous-bird/57-summary/57-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/58-exercises/58-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/59-all this fruit/59-all this fruit.html" title="All This Fruit">All This Fruit</a></li>
+                
+                
+                <li><a href="/vacuous-bird/60-struct/60-struct.html" title="Struct">Struct</a></li>
+                
+                
+                <li><a href="/vacuous-bird/61-call another function/61-call another function.html" title="Call Another Function">Call Another Function</a></li>
+                
+                
+                <li><a href="/vacuous-bird/62-ownership and moving/62-ownership and moving.html" title="Ownership And Moving">Ownership And Moving</a></li>
+                
+                
+                <li><a href="/vacuous-bird/63-copy values/63-copy values.html" title="Copy Values">Copy Values</a></li>
+                
+                
+                <li><a href="/vacuous-bird/64-make a copy/64-make a copy.html" title="Make A Copy">Make A Copy</a></li>
+                
+                
+                <li><a href="/vacuous-bird/65-move out/65-move out.html" title="Move Out">Move Out</a></li>
+                
+                
+                <li><a href="/vacuous-bird/66-increasing fruit/66-increasing fruit.html" title="Increasing Fruit">Increasing Fruit</a></li>
+                
+                
+                <li><a href="/vacuous-bird/67-upper and lower case/67-upper and lower case.html" title="Upper And Lower Case">Upper And Lower Case</a></li>
+                
+                
+                <li><a href="/vacuous-bird/68-summary/68-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/69-exercises/69-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/70-borrow/70-borrow.html" title="Borrow">Borrow</a></li>
+                
+                
+                <li><a href="/vacuous-bird/71-mutable references/71-mutable references.html" title="Mutable References">Mutable References</a></li>
+                
+                
+                <li><a href="/vacuous-bird/72-what s in a reference/72-what s in a reference.html" title="What S In A Reference">What S In A Reference</a></li>
+                
+                
+                <li><a href="/vacuous-bird/73-deref/73-deref.html" title="Deref">Deref</a></li>
+                
+                
+                <li><a href="/vacuous-bird/74-lifetimes of references/74-lifetimes of references.html" title="Lifetimes Of References">Lifetimes Of References</a></li>
+                
+                
+                <li><a href="/vacuous-bird/75-mutating and borrowing/75-mutating and borrowing.html" title="Mutating And Borrowing">Mutating And Borrowing</a></li>
+                
+                
+                <li><a href="/vacuous-bird/76-multiple references/76-multiple references.html" title="Multiple References">Multiple References</a></li>
+                
+                
+                <li><a href="/vacuous-bird/77-single mutable reference/77-single mutable reference.html" title="Single Mutable Reference">Single Mutable Reference</a></li>
+                
+                
+                <li><a href="/vacuous-bird/78-mutable to immutable/78-mutable to immutable.html" title="Mutable To Immutable">Mutable To Immutable</a></li>
+                
+                
+                <li><a href="/vacuous-bird/79-summary/79-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/80-exercises/80-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/81-hello method calls/81-hello method calls.html" title="Hello Method Calls">Hello Method Calls</a></li>
+                
+                
+                <li><a href="/vacuous-bird/82-type inference/82-type inference.html" title="Type Inference">Type Inference</a></li>
+                
+                
+                <li><a href="/vacuous-bird/83-side note underscores in numbers/83-side note underscores in numbers.html" title="Side Note Underscores In Numbers">Side Note Underscores In Numbers</a></li>
+                
+                
+                <li><a href="/vacuous-bird/84-negative numbers are annoying/84-negative numbers are annoying.html" title="Negative Numbers Are Annoying">Negative Numbers Are Annoying</a></li>
+                
+                
+                <li><a href="/vacuous-bird/85-hello method implementations/85-hello method implementations.html" title="Hello Method Implementations">Hello Method Implementations</a></li>
+                
+                
+                <li><a href="/vacuous-bird/86-methods by reference/86-methods by reference.html" title="Methods By Reference">Methods By Reference</a></li>
+                
+                
+                <li><a href="/vacuous-bird/87-static methods/87-static methods.html" title="Static Methods">Static Methods</a></li>
+                
+                
+                <li><a href="/vacuous-bird/88-the self type/88-the self type.html" title="The Self Type">The Self Type</a></li>
+                
+                
+                <li><a href="/vacuous-bird/89-method call chaining/89-method call chaining.html" title="Method Call Chaining">Method Call Chaining</a></li>
+                
+                
+                <li><a href="/vacuous-bird/90-summary/90-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/91-exercises/91-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/92-bits bytes and memory/92-bits bytes and memory.html" title="Bits Bytes And Memory">Bits Bytes And Memory</a></li>
+                
+                
+                <li><a href="/vacuous-bird/93-dynamically sized types/93-dynamically sized types.html" title="Dynamically Sized Types">Dynamically Sized Types</a></li>
+                
+                
+                <li><a href="/vacuous-bird/94-program memory/94-program memory.html" title="Program Memory">Program Memory</a></li>
+                
+                
+                <li><a href="/vacuous-bird/95-lifetimes of string literals/95-lifetimes of string literals.html" title="Lifetimes Of String Literals">Lifetimes Of String Literals</a></li>
+                
+                
+                <li><a href="/vacuous-bird/96-owned strings/96-owned strings.html" title="Owned Strings">Owned Strings</a></li>
+                
+                
+                <li><a href="/vacuous-bird/97-the type of owned strings/97-the type of owned strings.html" title="The Type Of Owned Strings">The Type Of Owned Strings</a></li>
+                
+                
+                <li><a href="/vacuous-bird/98-moving strings/98-moving strings.html" title="Moving Strings">Moving Strings</a></li>
+                
+                
+                <li><a href="/vacuous-bird/99-borrowing a string/99-borrowing a string.html" title="Borrowing A String">Borrowing A String</a></li>
+                
+                
+                <li><a href="/vacuous-bird/100-a better person/100-a better person.html" title="A Better Person">A Better Person</a></li>
+                
+                
+                <li><a href="/vacuous-bird/101-the format macro/101-the format macro.html" title="The Format Macro">The Format Macro</a></li>
+                
+                
+                <li><a href="/vacuous-bird/102-freeing/102-freeing.html" title="Freeing">Freeing</a></li>
+                
+                
+                <li><a href="/vacuous-bird/103-summary/103-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/104-exercises/104-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/105-arrays/105-arrays.html" title="Arrays">Arrays</a></li>
+                
+                
+                <li><a href="/vacuous-bird/106-indexing/106-indexing.html" title="Indexing">Indexing</a></li>
+                
+                
+                <li><a href="/vacuous-bird/107-slices/107-slices.html" title="Slices">Slices</a></li>
+                
+                
+                <li><a href="/vacuous-bird/108-the relation to string slices/108-the relation to string slices.html" title="The Relation To String Slices">The Relation To String Slices</a></li>
+                
+                
+                <li><a href="/vacuous-bird/109-vec/109-vec.html" title="Vec">Vec</a></li>
+                
+                
+                <li><a href="/vacuous-bird/110-slicing a slice/110-slicing a slice.html" title="Slicing A Slice">Slicing A Slice</a></li>
+                
+                
+                <li><a href="/vacuous-bird/111-summary/111-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/112-exercises/112-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/113-parameterized structs/113-parameterized structs.html" title="Parameterized Structs">Parameterized Structs</a></li>
+                
+                
+                <li><a href="/vacuous-bird/114-parameterized functions/114-parameterized functions.html" title="Parameterized Functions">Parameterized Functions</a></li>
+                
+                
+                <li><a href="/vacuous-bird/115-parameterized impl blocks/115-parameterized impl blocks.html" title="Parameterized Impl Blocks">Parameterized Impl Blocks</a></li>
+                
+                
+                <li><a href="/vacuous-bird/116-turbofish/116-turbofish.html" title="Turbofish">Turbofish</a></li>
+                
+                
+                <li><a href="/vacuous-bird/117-summary/117-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/118-exercises/118-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/119-double double/119-double double.html" title="Double Double">Double Double</a></li>
+                
+                
+                <li><a href="/vacuous-bird/120-trait bounds/120-trait bounds.html" title="Trait Bounds">Trait Bounds</a></li>
+                
+                
+                <li><a href="/vacuous-bird/121-parameterized fruit/121-parameterized fruit.html" title="Parameterized Fruit">Parameterized Fruit</a></li>
+                
+                
+                <li><a href="/vacuous-bird/122-display/122-display.html" title="Display">Display</a></li>
+                
+                
+                <li><a href="/vacuous-bird/123-clone and derive/123-clone and derive.html" title="Clone And Derive">Clone And Derive</a></li>
+                
+                
+                <li><a href="/vacuous-bird/124-copy and marker traits/124-copy and marker traits.html" title="Copy And Marker Traits">Copy And Marker Traits</a></li>
+                
+                
+                <li><a href="/vacuous-bird/125-debug/125-debug.html" title="Debug">Debug</a></li>
+                
+                
+                <li><a href="/vacuous-bird/126-partial equal partial order/126-partial equal partial order.html" title="Partial Equal Partial Order">Partial Equal Partial Order</a></li>
+                
+                
+                <li><a href="/vacuous-bird/127-using traits from std/127-using traits from std.html" title="Using Traits From Std">Using Traits From Std</a></li>
+                
+                
+                <li><a href="/vacuous-bird/128-multiple bounds/128-multiple bounds.html" title="Multiple Bounds">Multiple Bounds</a></li>
+                
+                
+                <li><a href="/vacuous-bird/129-associated types/129-associated types.html" title="Associated Types">Associated Types</a></li>
+                
+                
+                <li><a href="/vacuous-bird/130-summary/130-summary.html" title="Summary">Summary</a></li>
+                
+                
+                <li><a href="/vacuous-bird/131-exercises/131-exercises.html" title="Exercises">Exercises</a></li>
+                
+                
+                <li><a href="/vacuous-bird/132-get me a job/132-get me a job.html" title="Get Me A Job">Get Me A Job</a></li>
+                
+                
+                <li><a href="/vacuous-bird/133-using variants/133-using variants.html" title="Using Variants">Using Variants</a></li>
+                
+                
+                <li><a href="/vacuous-bird/134-pattern matching/134-pattern matching.html" title="Pattern Matching">Pattern Matching</a></li>
+                
+                
+                <li><a href="/vacuous-bird/135-commas and braces/135-commas and braces.html" title="Commas And Braces">Commas And Braces</a></li>
+                
+                
+                <li><a href="/vacuous-bird/136-more teachers/136-more teachers.html" title="More Teachers">More Teachers</a></li>
+                
+            </ul>
+        </li>
+    </ul>
+</div>
+    </aside>
+    <section class="content" style="overflow-y: auto;">
+      <article class="markdown-section" id="main">
+        <h1 id="class-assignment-title"><a href="/Assignments/Sample_Project?id=class-assignment-title"
+            data-id="class-assignment-title" class="anchor"><span>The Ultimate Guide to Rust Programming - Learn Interactively</span></a></h1>
+        <h2 id="description"><span>Course Overview</span></a></h2>
+        <p>Rust is quickly becoming one of the most popular languages. With a strong basis as a systems and embedded language, its clean design and ergonomics makes it an emerging choice for general purpose programming tasks as well. This course will be your guide to the fundamentals of programming and Rust. Whether you have no experience or want to learn a new language, this is the place to start.
+
+In this course, you’ll start off with the basics of the Rust programming language, learning the syntax, the philosophy of the language, and the anatomy of Rust. With that in hand, you’ll move onto some of the more unique parts of Rust, such as expression-oriented programming, ownership, and its strong type system.
+
+In the latter half of the course, you’ll work through some of the core components of Rust such as references, memory management, mutability, traits, slices, and generics.
+
+By the time you finish, you’ll have the foundations in place to learn more advanced concepts and take your Rust programming to the next level.</p>
+      </article>
+      <article class="markdown-section" id="main">
+        <h2 id="description"><span>Course Content</span></a></h2>
+        <div class="table-wrapper">
+          <table id="_eiwfoklkm">
+            <thead>
+              <tr>
+                <th align="center">#</th>
+                <th align="center">Lesson</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              
+              <tr>
+                <td align="center">0</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/0-introduction/0-introduction.html"
+                      title="Introduction">Introduction</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">1</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/1-instructions/1-instructions.html"
+                      title="Instructions">Instructions</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">2</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/2-hello world/2-hello world.html"
+                      title="Hello World">Hello World</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">3</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/3-what does that mean/3-what does that mean.html"
+                      title="What Does That Mean">What Does That Mean</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">4</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/4-interpolation/4-interpolation.html"
+                      title="Interpolation">Interpolation</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">5</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/5-variables/5-variables.html"
+                      title="Variables">Variables</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">6</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/6-more math/6-more math.html"
+                      title="More Math">More Math</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">7</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/7-multiple variables and shadowing/7-multiple variables and shadowing.html"
+                      title="Multiple Variables And Shadowing">Multiple Variables And Shadowing</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">8</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/8-types/8-types.html"
+                      title="Types">Types</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">9</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/9-summary/9-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">10</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/10-exercises/10-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">11</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/11-introduction/11-introduction.html"
+                      title="Introduction">Introduction</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">12</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/12-pairing and nesting/12-pairing and nesting.html"
+                      title="Pairing And Nesting">Pairing And Nesting</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">13</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/13-layout/13-layout.html"
+                      title="Layout">Layout</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">14</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/14-comments/14-comments.html"
+                      title="Comments">Comments</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">15</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/15-expressions values and types/15-expressions values and types.html"
+                      title="Expressions Values And Types">Expressions Values And Types</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">16</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/16-variables again/16-variables again.html"
+                      title="Variables Again">Variables Again</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">17</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/17-effects versus results/17-effects versus results.html"
+                      title="Effects Versus Results">Effects Versus Results</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">18</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/18-blocks and statements/18-blocks and statements.html"
+                      title="Blocks And Statements">Blocks And Statements</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">19</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/19-summary/19-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">20</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/20-exercises/20-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">21</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/21-hello world again/21-hello world again.html"
+                      title="Hello World Again">Hello World Again</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">22</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/22-function parameters/22-function parameters.html"
+                      title="Function Parameters">Function Parameters</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">23</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/23-function results/23-function results.html"
+                      title="Function Results">Function Results</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">24</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/24-multiple parameters/24-multiple parameters.html"
+                      title="Multiple Parameters">Multiple Parameters</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">25</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/25-variable and parameter scope/25-variable and parameter scope.html"
+                      title="Variable And Parameter Scope">Variable And Parameter Scope</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">26</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/26-anatomy of a function/26-anatomy of a function.html"
+                      title="Anatomy Of A Function">Anatomy Of A Function</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">27</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/27-calling functions/27-calling functions.html"
+                      title="Calling Functions">Calling Functions</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">28</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/28-is main special/28-is main special.html"
+                      title="Is Main Special">Is Main Special</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">29</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/29-summary/29-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">30</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/30-exercises/30-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">31</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/31-equality/31-equality.html"
+                      title="Equality">Equality</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">32</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/32-assertions/32-assertions.html"
+                      title="Assertions">Assertions</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">33</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/33-comparison operators/33-comparison operators.html"
+                      title="Comparison Operators">Comparison Operators</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">34</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/34-functions returning booleans/34-functions returning booleans.html"
+                      title="Functions Returning Booleans">Functions Returning Booleans</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">35</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/35-the not operator/35-the not operator.html"
+                      title="The Not Operator">The Not Operator</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">36</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/36-not ing other comparison operators/36-not ing other comparison operators.html"
+                      title="Not Ing Other Comparison Operators">Not Ing Other Comparison Operators</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">37</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/37-and or/37-and or.html"
+                      title="And Or">And Or</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">38</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/38-summary/38-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">39</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/39-exercises/39-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">40</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/40-hello if/40-hello if.html"
+                      title="Hello If">Hello If</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">41</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/41-a note on semicolons/41-a note on semicolons.html"
+                      title="A Note On Semicolons">A Note On Semicolons</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">42</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/42-else/42-else.html"
+                      title="Else">Else</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">43</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/43-else if/43-else if.html"
+                      title="Else If">Else If</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">44</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/44-evaluating to values/44-evaluating to values.html"
+                      title="Evaluating To Values">Evaluating To Values</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">45</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/45-factorial and recursion/45-factorial and recursion.html"
+                      title="Factorial And Recursion">Factorial And Recursion</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">46</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/46-summary/46-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">47</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/47-exercises/47-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">48</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/48-while expressions loops/48-while expressions loops.html"
+                      title="While Expressions Loops">While Expressions Loops</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">49</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/49-failed attempt shadowing/49-failed attempt shadowing.html"
+                      title="Failed Attempt Shadowing">Failed Attempt Shadowing</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">50</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/50-almost correct assignment/50-almost correct assignment.html"
+                      title="Almost Correct Assignment">Almost Correct Assignment</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">51</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/51-more than once/51-more than once.html"
+                      title="More Than Once">More Than Once</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">52</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/52-counting/52-counting.html"
+                      title="Counting">Counting</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">53</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/53-sum/53-sum.html"
+                      title="Sum">Sum</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">54</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/54-nested loops/54-nested loops.html"
+                      title="Nested Loops">Nested Loops</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">55</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/55-mutation and shadowing/55-mutation and shadowing.html"
+                      title="Mutation And Shadowing">Mutation And Shadowing</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">56</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/56-let without assignment/56-let without assignment.html"
+                      title="Let Without Assignment">Let Without Assignment</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">57</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/57-summary/57-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">58</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/58-exercises/58-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">59</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/59-all this fruit/59-all this fruit.html"
+                      title="All This Fruit">All This Fruit</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">60</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/60-struct/60-struct.html"
+                      title="Struct">Struct</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">61</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/61-call another function/61-call another function.html"
+                      title="Call Another Function">Call Another Function</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">62</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/62-ownership and moving/62-ownership and moving.html"
+                      title="Ownership And Moving">Ownership And Moving</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">63</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/63-copy values/63-copy values.html"
+                      title="Copy Values">Copy Values</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">64</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/64-make a copy/64-make a copy.html"
+                      title="Make A Copy">Make A Copy</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">65</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/65-move out/65-move out.html"
+                      title="Move Out">Move Out</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">66</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/66-increasing fruit/66-increasing fruit.html"
+                      title="Increasing Fruit">Increasing Fruit</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">67</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/67-upper and lower case/67-upper and lower case.html"
+                      title="Upper And Lower Case">Upper And Lower Case</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">68</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/68-summary/68-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">69</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/69-exercises/69-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">70</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/70-borrow/70-borrow.html"
+                      title="Borrow">Borrow</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">71</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/71-mutable references/71-mutable references.html"
+                      title="Mutable References">Mutable References</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">72</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/72-what s in a reference/72-what s in a reference.html"
+                      title="What S In A Reference">What S In A Reference</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">73</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/73-deref/73-deref.html"
+                      title="Deref">Deref</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">74</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/74-lifetimes of references/74-lifetimes of references.html"
+                      title="Lifetimes Of References">Lifetimes Of References</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">75</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/75-mutating and borrowing/75-mutating and borrowing.html"
+                      title="Mutating And Borrowing">Mutating And Borrowing</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">76</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/76-multiple references/76-multiple references.html"
+                      title="Multiple References">Multiple References</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">77</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/77-single mutable reference/77-single mutable reference.html"
+                      title="Single Mutable Reference">Single Mutable Reference</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">78</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/78-mutable to immutable/78-mutable to immutable.html"
+                      title="Mutable To Immutable">Mutable To Immutable</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">79</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/79-summary/79-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">80</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/80-exercises/80-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">81</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/81-hello method calls/81-hello method calls.html"
+                      title="Hello Method Calls">Hello Method Calls</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">82</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/82-type inference/82-type inference.html"
+                      title="Type Inference">Type Inference</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">83</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/83-side note underscores in numbers/83-side note underscores in numbers.html"
+                      title="Side Note Underscores In Numbers">Side Note Underscores In Numbers</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">84</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/84-negative numbers are annoying/84-negative numbers are annoying.html"
+                      title="Negative Numbers Are Annoying">Negative Numbers Are Annoying</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">85</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/85-hello method implementations/85-hello method implementations.html"
+                      title="Hello Method Implementations">Hello Method Implementations</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">86</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/86-methods by reference/86-methods by reference.html"
+                      title="Methods By Reference">Methods By Reference</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">87</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/87-static methods/87-static methods.html"
+                      title="Static Methods">Static Methods</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">88</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/88-the self type/88-the self type.html"
+                      title="The Self Type">The Self Type</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">89</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/89-method call chaining/89-method call chaining.html"
+                      title="Method Call Chaining">Method Call Chaining</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">90</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/90-summary/90-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">91</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/91-exercises/91-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">92</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/92-bits bytes and memory/92-bits bytes and memory.html"
+                      title="Bits Bytes And Memory">Bits Bytes And Memory</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">93</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/93-dynamically sized types/93-dynamically sized types.html"
+                      title="Dynamically Sized Types">Dynamically Sized Types</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">94</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/94-program memory/94-program memory.html"
+                      title="Program Memory">Program Memory</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">95</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/95-lifetimes of string literals/95-lifetimes of string literals.html"
+                      title="Lifetimes Of String Literals">Lifetimes Of String Literals</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">96</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/96-owned strings/96-owned strings.html"
+                      title="Owned Strings">Owned Strings</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">97</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/97-the type of owned strings/97-the type of owned strings.html"
+                      title="The Type Of Owned Strings">The Type Of Owned Strings</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">98</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/98-moving strings/98-moving strings.html"
+                      title="Moving Strings">Moving Strings</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">99</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/99-borrowing a string/99-borrowing a string.html"
+                      title="Borrowing A String">Borrowing A String</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">100</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/100-a better person/100-a better person.html"
+                      title="A Better Person">A Better Person</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">101</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/101-the format macro/101-the format macro.html"
+                      title="The Format Macro">The Format Macro</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">102</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/102-freeing/102-freeing.html"
+                      title="Freeing">Freeing</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">103</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/103-summary/103-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">104</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/104-exercises/104-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">105</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/105-arrays/105-arrays.html"
+                      title="Arrays">Arrays</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">106</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/106-indexing/106-indexing.html"
+                      title="Indexing">Indexing</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">107</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/107-slices/107-slices.html"
+                      title="Slices">Slices</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">108</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/108-the relation to string slices/108-the relation to string slices.html"
+                      title="The Relation To String Slices">The Relation To String Slices</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">109</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/109-vec/109-vec.html"
+                      title="Vec">Vec</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">110</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/110-slicing a slice/110-slicing a slice.html"
+                      title="Slicing A Slice">Slicing A Slice</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">111</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/111-summary/111-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">112</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/112-exercises/112-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">113</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/113-parameterized structs/113-parameterized structs.html"
+                      title="Parameterized Structs">Parameterized Structs</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">114</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/114-parameterized functions/114-parameterized functions.html"
+                      title="Parameterized Functions">Parameterized Functions</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">115</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/115-parameterized impl blocks/115-parameterized impl blocks.html"
+                      title="Parameterized Impl Blocks">Parameterized Impl Blocks</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">116</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/116-turbofish/116-turbofish.html"
+                      title="Turbofish">Turbofish</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">117</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/117-summary/117-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">118</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/118-exercises/118-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">119</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/119-double double/119-double double.html"
+                      title="Double Double">Double Double</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">120</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/120-trait bounds/120-trait bounds.html"
+                      title="Trait Bounds">Trait Bounds</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">121</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/121-parameterized fruit/121-parameterized fruit.html"
+                      title="Parameterized Fruit">Parameterized Fruit</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">122</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/122-display/122-display.html"
+                      title="Display">Display</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">123</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/123-clone and derive/123-clone and derive.html"
+                      title="Clone And Derive">Clone And Derive</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">124</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/124-copy and marker traits/124-copy and marker traits.html"
+                      title="Copy And Marker Traits">Copy And Marker Traits</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">125</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/125-debug/125-debug.html"
+                      title="Debug">Debug</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">126</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/126-partial equal partial order/126-partial equal partial order.html"
+                      title="Partial Equal Partial Order">Partial Equal Partial Order</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">127</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/127-using traits from std/127-using traits from std.html"
+                      title="Using Traits From Std">Using Traits From Std</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">128</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/128-multiple bounds/128-multiple bounds.html"
+                      title="Multiple Bounds">Multiple Bounds</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">129</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/129-associated types/129-associated types.html"
+                      title="Associated Types">Associated Types</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">130</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/130-summary/130-summary.html"
+                      title="Summary">Summary</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">131</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/131-exercises/131-exercises.html"
+                      title="Exercises">Exercises</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">132</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/132-get me a job/132-get me a job.html"
+                      title="Get Me A Job">Get Me A Job</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">133</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/133-using variants/133-using variants.html"
+                      title="Using Variants">Using Variants</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">134</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/134-pattern matching/134-pattern matching.html"
+                      title="Pattern Matching">Pattern Matching</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">135</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/135-commas and braces/135-commas and braces.html"
+                      title="Commas And Braces">Commas And Braces</a>
+                  </strong>
+                </td>
+              </tr>
+              
+              
+              <tr>
+                <td align="center">136</td>
+                <td align="center">
+                  <strong>
+                    <a href="/vacuous-bird/136-more teachers/136-more teachers.html"
+                      title="More Teachers">More Teachers</a>
+                  </strong>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+  <!-- UPDATE: Make sure to update NAME, REPO, and NAMESPACE below-->
+  <script>
+
+  </script>
+  <script src="/vacuous-bird/static/docsify.min.js"></script>
+  <script src="/vacuous-bird/static/index.js"></script>
+  <script src="/vacuous-bird/static/emoji.min.js"></script>
+  <script src="/vacuous-bird/static/external-script.min.js"></script>
+  <script src="/vacuous-bird/static/docsify-copy-code@2"></script>
+  <script src="/vacuous-bird/static/docsify-tabs@1"></script>
+  <script src="/vacuous-bird/static/docsify-plugin-flexible-alerts"></script>
+  <script src="/vacuous-bird/static/prism-bash.min.js"></script>
+  <script src="/vacuous-bird/static/prism-handlebars.min.js"></script>
+  <script src="/vacuous-bird/static/prism-javascript.min.js"></script>
+  <script src="/vacuous-bird/static/prism-json.min.js"></script>
+  <script src="/vacuous-bird/static/prism-markdown.min.js"></script>
+  <script src="/vacuous-bird/static/index.min.js" type="text/javascript">
+  </script>
+</body>
+
+</html>

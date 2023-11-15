@@ -1,0 +1,1 @@
+count_fruit(10, 5);

@@ -1,0 +1,9 @@
+fn main() {
+    let mut x = 5;
+
+    let y = &mut x; // freeze
+    x *= 2;
+    *y *= 2; // unfreeze
+
+    println!("x == {}", x);
+}

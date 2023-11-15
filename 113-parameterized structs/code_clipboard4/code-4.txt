@@ -1,0 +1,16 @@
+struct Person<Name, Age> {
+    name: Name,
+    age: Age,
+}
+
+fn main() {
+    let _alice: Person<String, u32> = Person {
+        name: "Alice".to_owned(),
+        age: 30_u32,
+    };
+
+    let _bob: Person<String, u64> = Person {
+        name: "Bob".to_owned(),
+        age: 35_u64,
+    };
+}

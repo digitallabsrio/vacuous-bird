@@ -1,0 +1,5 @@
+#[allow(unused_variables, unused_mut)]
+fn fibs(count: usize) -> Vec<u32> {
+   // Write code here!
+   [].to_vec()
+}

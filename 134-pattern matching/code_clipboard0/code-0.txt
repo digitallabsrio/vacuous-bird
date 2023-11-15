@@ -1,0 +1,11 @@
+impl Person {
+    fn greeting(&self) -> String {
+        if self.job == Job::Teacher {
+            format!("Hello, you're a teacher named {}", self.name)
+        } else if self.job == Job::Scientist {
+            format!("Hello, you're a scientist named {}", self.name)
+        } else {
+            format!("Huh, this shouldn't be possible...")
+        }
+    }
+}

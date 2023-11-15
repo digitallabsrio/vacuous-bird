@@ -1,0 +1,9 @@
+trait InThreeHours {
+    fn in_three_hours(&self) -> Km;
+}
+
+impl InThreeHours for Kmh {
+    fn in_three_hours(&self) -> Km {
+        Km { value: self.value * 3 }
+    }
+}

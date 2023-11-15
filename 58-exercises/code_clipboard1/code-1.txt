@@ -1,0 +1,4 @@
+#[allow(unused_variables, unused_mut)]
+fn triangle(n: i32) {
+    // Write your code here!
+}

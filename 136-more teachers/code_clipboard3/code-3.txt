@@ -1,0 +1,15 @@
+enum Subject {
+    Art,
+    Math,
+}
+
+enum Job {
+    Teacher(Subject),
+    Scientist,
+}
+
+struct Person {
+    name: String,
+    age: u32,
+    job: Job,
+}

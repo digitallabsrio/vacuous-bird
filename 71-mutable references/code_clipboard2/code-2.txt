@@ -1,0 +1,1 @@
+let fruit = increase_fruit(fruit);

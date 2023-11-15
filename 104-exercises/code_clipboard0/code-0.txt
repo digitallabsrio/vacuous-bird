@@ -1,0 +1,6 @@
+fn main() {
+    let hello = "Hello, ";
+    let world = "world!";
+    let helloworld = hello + world;
+    println!("{}", helloworld);
+}

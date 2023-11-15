@@ -1,0 +1,3 @@
+while is_raining() {
+    println!("Hey, it's raining!");
+}

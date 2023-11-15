@@ -1,0 +1,6 @@
+fn main() {
+    let x = (5 + 3) * (6 + 4);
+    let y = times(add_3(5), add_4(6));
+    assert_eq!(x, y);
+    println!("Good job!");
+}

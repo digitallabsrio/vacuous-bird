@@ -1,0 +1,11 @@
+impl Double for i32 {
+    fn double(&self) -> i32 {
+        self * 2
+    }
+}
+
+impl Double for i64 {
+    fn double(&self) -> i64 {
+        self * 2
+    }
+}

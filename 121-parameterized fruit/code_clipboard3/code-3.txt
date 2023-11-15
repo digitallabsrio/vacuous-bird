@@ -1,0 +1,32 @@
+trait Double {
+    fn double(&self) -> Self;
+}
+
+impl Double for i32 {
+    fn double(&self) -> Self {
+        self * 2
+    }
+}
+
+struct Fruit<T> {
+    apples: T,
+    bananas: T,
+}
+
+impl<T> Double for Fruit<T> {
+    fn double(&self) -> Self {
+        Fruit {
+            apples: self.apples.double(),
+            bananas: self.bananas.double(),
+        }
+    }
+}
+
+fn main() {
+    let fruit = Fruit {
+        apples: 5,
+        bananas: 10,
+    };
+
+    println!("Fruit total is {} and then doubled, fruit total is {}.", fruit.apples + fruit.bananas, fruit.apples.double() + fruit.bananas.double());
+}

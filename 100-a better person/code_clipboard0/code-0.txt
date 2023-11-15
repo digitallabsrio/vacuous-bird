@@ -1,0 +1,4 @@
+struct Person {
+    name: &'static str,
+    age: i32,
+}

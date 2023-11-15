@@ -1,0 +1,15 @@
+fn is_raining() -> bool {
+    true
+}
+
+fn main() {
+    let x;
+
+    if is_raining() {
+        x = 5;
+    } else {
+        x = 6;
+    }
+
+    println!("x == {}", x);
+}

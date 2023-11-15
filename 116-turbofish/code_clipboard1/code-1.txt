@@ -1,0 +1,8 @@
+impl Fruit<i64> {
+    fn new() -> Self {
+        Fruit {
+            apples: 5,
+            bananas: 10,
+        }
+    }
+}

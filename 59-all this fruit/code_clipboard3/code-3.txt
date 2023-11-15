@@ -1,0 +1,5 @@
+fn main() {
+    count_fruit(10, 5);
+    let price = price_fruit(10, 5);
+    println!("I can make {} cents", price);
+}

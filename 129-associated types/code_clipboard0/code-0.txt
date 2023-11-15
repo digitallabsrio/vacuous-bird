@@ -1,0 +1,9 @@
+#[derive(Debug, Clone, Copy)]
+struct Kmh {
+    value: u32
+}
+
+#[derive(Debug, Clone, Copy)]
+struct Km {
+    value: u32
+}

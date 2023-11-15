@@ -1,0 +1,5 @@
+fn main() {
+    let fruit = new_fruit();
+    let fruit = increase_fruit(fruit);
+    print_fruit(fruit);
+}

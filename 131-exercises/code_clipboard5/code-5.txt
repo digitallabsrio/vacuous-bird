@@ -1,0 +1,16 @@
+fn reverse(numbers: &[i32]) -> Vec<i32> {
+    let mut res = vec![];
+    let mut i = numbers.len();
+    while i > 0 {
+        i -= 1;
+        res.push(numbers[i]);
+    }
+    res
+}
+
+fn main() {
+    assert_eq!(reverse(&[4, 5, 2, 8]), &[8, 2, 5, 4]);
+    assert_eq!(reverse(&[true, false, true, false]), &[false, true, false, true]);
+    assert_eq!(reverse(&[(), ()]), &[(), ()]);
+    println!("Success!");
+}

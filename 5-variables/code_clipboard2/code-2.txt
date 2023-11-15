@@ -1,0 +1,4 @@
+fn main() {
+    let apples = 10 + 5;
+    println!("I have {} apples", apples);
+}

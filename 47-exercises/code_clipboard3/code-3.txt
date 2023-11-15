@@ -1,0 +1,6 @@
+fn is_hot() -> bool {
+    true // your code goes here!
+}
+fn is_cold() -> bool {
+    true // feel free to change this to false
+}

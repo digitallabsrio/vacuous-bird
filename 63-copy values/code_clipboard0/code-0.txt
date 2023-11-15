@@ -1,0 +1,14 @@
+fn count(apples: i32) {
+    println!("You have {} apples", apples);
+}
+
+fn price(apples: i32) -> i32 {
+    apples * 8
+}
+
+fn main() {
+    let apples: i32 = 10;
+    count(apples);
+    let price = price(apples);
+    println!("The apples are worth {} cents", price);
+}

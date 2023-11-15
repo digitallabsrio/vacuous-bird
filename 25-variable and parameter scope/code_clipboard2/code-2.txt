@@ -1,0 +1,15 @@
+fn say_apples(apples: i32) {
+    println!("I can use apples here: {}", apples);
+    {
+        let bananas = 20;
+        println!("I can use apples here too: {}", apples);
+        println!("And I can use bananas: {}", bananas);
+    }
+    println!("But I can't use bananas here {}", bananas);
+}
+
+fn main() {
+    say_apples(10);
+
+    println!("I can't use either here {} {}", apples, bananas);
+}

@@ -1,0 +1,8 @@
+fn info<T>(x: T)
+where
+    T: Double + std::fmt::Display + Copy,
+{
+    println!("Original number: {}", x);
+    println!("Doubled number: {}", x.double());
+    println!("Quadrupled number: {}", x.double().double());
+}

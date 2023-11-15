@@ -1,0 +1,4 @@
+fn main() {
+    let main = "I can reuse the name main";
+    println!("main == {}", main);
+}

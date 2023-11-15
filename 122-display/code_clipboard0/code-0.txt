@@ -1,0 +1,8 @@
+fn stringy(x: i32) -> String {
+    format!("{}", x)
+}
+
+fn main() {
+    assert_eq!(stringy(42), "42".to_owned());
+    println!("Success!");
+}

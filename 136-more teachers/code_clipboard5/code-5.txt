@@ -1,0 +1,6 @@
+fn is_teacher(&self) -> bool {
+    match self.job {
+        Job::Teacher(_) => true,
+        Job::Scientist => false,
+    }
+}

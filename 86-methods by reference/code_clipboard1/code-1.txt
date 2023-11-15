@@ -1,0 +1,3 @@
+impl Fruit {
+    // define your method here
+}

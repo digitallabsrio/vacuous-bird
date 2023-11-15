@@ -1,0 +1,5 @@
+#[allow(unused_variables, unused_mut)]
+fn fact(x: i32) -> i32 {
+    // Write your code here!
+    0
+}

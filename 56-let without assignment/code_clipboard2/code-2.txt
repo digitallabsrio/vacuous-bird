@@ -1,0 +1,5 @@
+let x = if is_raining() {
+    5
+} else {
+    6
+};

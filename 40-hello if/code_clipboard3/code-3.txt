@@ -1,0 +1,9 @@
+fn main() {
+    let temp = 20;
+    if temp > 15 && temp < 27 {
+        println!("It's fairly comfortable in here!");
+        if temp < 20 {
+            println!("But it could be a bit warmer.");
+        }
+    }
+}

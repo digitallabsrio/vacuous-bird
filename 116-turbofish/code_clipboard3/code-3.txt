@@ -1,0 +1,4 @@
+fn main() {
+    let size = std::mem::size_of();
+    println!("Size: {}", size);
+}

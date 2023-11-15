@@ -1,0 +1,4 @@
+fn main() {
+    print_square(10);
+    print_square(15);
+}

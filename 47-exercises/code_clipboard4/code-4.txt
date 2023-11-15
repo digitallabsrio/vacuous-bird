@@ -1,0 +1,16 @@
+fn can_go_outside(is_raining: bool, temp: i32) -> bool {
+    unimplemented!()
+}
+
+fn tell_kids(is_raining: bool, temp: i32) {
+    let msg: &str = unimplemented!();
+
+    println!("{}", msg);
+}
+
+fn main() {
+    tell_kids(true, 9);
+    tell_kids(true, 10);
+    tell_kids(false, 9);
+    tell_kids(false, 10);
+}

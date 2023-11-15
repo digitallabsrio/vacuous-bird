@@ -1,0 +1,3 @@
+fn greet<Age>(person: &Person<String, Age>) {
+    println!("Hello, {}", person.name);
+}

@@ -1,0 +1,8 @@
+impl Double for Fruit<i32> {
+    fn double(&self) -> Self {
+        Fruit {
+            apples: self.apples.double(),
+            bananas: self.bananas.double(),
+        }
+    }
+}

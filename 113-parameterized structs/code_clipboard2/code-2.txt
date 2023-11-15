@@ -1,0 +1,4 @@
+struct Fruit<T> {
+    apples: T,
+    bananas: T,
+}

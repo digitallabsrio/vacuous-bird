@@ -1,0 +1,8 @@
+fn main() {
+    println!(
+        "In the year {}, you'll turn {} if you're born in {}",
+        2020,
+        2020 - 1985,
+        1985,
+    );
+}

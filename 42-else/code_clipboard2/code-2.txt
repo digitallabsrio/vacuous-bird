@@ -1,0 +1,6 @@
+fn main() {
+    tell_temperature(10);
+    tell_temperature(20);
+    tell_temperature(30);
+    tell_temperature(40);
+}

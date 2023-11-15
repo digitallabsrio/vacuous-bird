@@ -1,0 +1,5 @@
+#[allow(unused_variables, unused_mut)]
+fn compute_power(a: u32, b: u32) -> i32{
+  // Your code here!
+  0
+}

@@ -1,0 +1,7 @@
+fn main() {
+    let keep_going = true;
+    while keep_going {
+        println!("Inside the while loop");
+        keep_going = false;
+    }
+}

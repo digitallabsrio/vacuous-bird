@@ -1,0 +1,17 @@
+fn main() {
+    let a: i32 = 5;
+
+    // borrow
+    let b: &i32 = &a;
+
+    // borrow again
+    let c: &i32 = &a;
+
+    // copy an existing reference
+    let d: &i32 = c;
+
+    // copy a copy of the reference
+    let e: &i32 = d;
+
+    println!("{} {} {} {} {}", a, b, c, d, e);
+}

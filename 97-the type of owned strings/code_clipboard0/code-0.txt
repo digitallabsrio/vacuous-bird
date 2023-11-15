@@ -1,0 +1,6 @@
+fn main() {
+    let first_name = "Michael".to_owned();
+    let last_name = " Snoyman";
+    let full_name: String = first_name + last_name;
+    println!("Full name is {}", full_name);
+}

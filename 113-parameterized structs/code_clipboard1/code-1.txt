@@ -1,0 +1,9 @@
+struct Fruit_i32 {
+    apples: i32,
+    bananas: i32,
+}
+
+struct Fruit_String {
+    apples: String,
+    bananas: String,
+}

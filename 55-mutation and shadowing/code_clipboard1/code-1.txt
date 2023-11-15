@@ -1,0 +1,10 @@
+fn main() {
+    let mut x = 5;
+    println!("x == {}", x);
+    x += 2;
+    {
+        let x = 20;
+        println!("x == {}", x);
+    }
+    println!("x == {}", x);
+}

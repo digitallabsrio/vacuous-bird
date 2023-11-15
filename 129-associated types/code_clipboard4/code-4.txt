@@ -1,0 +1,4 @@
+trait InThreeHours {
+    type Distance;
+    fn in_three_hours(&self) -> Self::Distance;
+}

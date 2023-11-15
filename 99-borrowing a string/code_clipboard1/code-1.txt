@@ -1,0 +1,14 @@
+fn greet(name: &String) {
+    println!("Hello {}", name);
+}
+
+fn main() {
+    let snoyman: &str = " Snoyman";
+    let michael: String = "Michael".to_owned() + snoyman;
+    let miriam: String = "Miriam".to_owned() + snoyman;
+    let alice: &str = "Alice Smith";
+
+    greet(&michael);
+    greet(&miriam);
+    greet(alice);
+}

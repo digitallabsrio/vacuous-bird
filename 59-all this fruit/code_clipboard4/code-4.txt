@@ -1,0 +1,8 @@
+fn main() {
+    count_fruit(10, 5);
+    let price = price_fruit(10, 5);
+    println!("I can make {} cents", price);
+
+    let increased_price = price_fruit(10 * 2, 5 * 3);
+    println!("I can make {} cents from more fruit", increased_price);
+}

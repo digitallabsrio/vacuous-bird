@@ -1,0 +1,15 @@
+fn helper(apples: i32) {
+    let x = if apples > 10 {
+        "I have enough apples"
+    } else {
+        false
+    };
+
+    println!("{}", x);
+}
+
+fn main() {
+    helper(9);
+    helper(10);
+    helper(11);
+}

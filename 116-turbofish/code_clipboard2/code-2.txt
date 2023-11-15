@@ -1,0 +1,6 @@
+fn main() {
+    let fruit = Fruit::<i64>::new();
+    assert_eq!(fruit.apples, 5_i64);
+    assert_eq!(fruit.bananas, 10_i64);
+    println!("Success!");
+}

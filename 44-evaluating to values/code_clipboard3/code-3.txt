@@ -1,0 +1,18 @@
+fn tell_temperature(temp: i32) {
+    println!(
+        "{}",
+        if temp <= 10 {
+            "It's cold!"
+        } else if temp <= 25 {
+            "It's nice"
+        } else if temp <= 30 {
+            "It's warm"
+        } else {
+            "It's hot!"
+        }
+    );
+}
+
+fn main() {
+    tell_temperature(15);
+}

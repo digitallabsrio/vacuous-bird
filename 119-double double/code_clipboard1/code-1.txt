@@ -1,0 +1,16 @@
+impl i32 {
+    fn double(&self) -> Self {
+        self * 2
+    }
+}
+
+impl i64 {
+    fn double(&self) -> Self {
+        self * 2
+    }
+}
+
+fn main() {
+    println!("double 5_i32 == {}", 5_i32.double());
+    println!("double 5_i64 == {}", 5_i64.double());
+}

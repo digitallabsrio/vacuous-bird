@@ -1,0 +1,11 @@
+fn main() {
+    let fruit = Fruit {
+        apples: 10,
+        bananas: 5,
+    };
+    let fruit = count_fruit(fruit);
+
+    let fruit = increase_fruit(fruit);
+    let price = price_fruit(fruit);
+    println!("I can make {} cents for more fruit", price);
+}

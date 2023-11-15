@@ -1,0 +1,5 @@
+#[allow(unused_variables, unused_mut)]
+fn maximum(numbers: &[u32]) -> u32 {
+   // Write code here!
+   0
+}

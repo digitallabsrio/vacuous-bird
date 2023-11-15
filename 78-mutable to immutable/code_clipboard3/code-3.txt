@@ -1,0 +1,7 @@
+fn printme(x: &i32) {
+    println!("{}", x);
+}
+
+fn main() {
+    printme(&mut 5);
+}

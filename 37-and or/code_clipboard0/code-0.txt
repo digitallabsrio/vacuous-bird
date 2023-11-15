@@ -1,0 +1,21 @@
+fn gets_discount(age: u32) -> bool {
+    unimplemented!() // replace this!
+}
+
+fn main() {
+    // Kids
+    assert_eq!(gets_discount(7), true);
+    assert!(gets_discount(8));
+    assert!(gets_discount(17));
+
+    // Adults
+    assert_eq!(gets_discount(18), false);
+    assert!(!gets_discount(30));
+    assert!(!gets_discount(64));
+
+    // Seniors
+    assert!(gets_discount(65));
+    assert!(gets_discount(70));
+
+    println!("Success!");
+}

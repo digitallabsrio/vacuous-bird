@@ -1,0 +1,5 @@
+enum Job {
+    ArtTeacher,
+    MathTeacher,
+    Scientist,
+}

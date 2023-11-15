@@ -1,0 +1,3 @@
+fn print_fruit(fruit: &Fruit) {
+    println!("You have {} apples and {} bananas", fruit.apples, fruit.bananas);
+}

@@ -1,0 +1,8 @@
+fn main() {
+    let is_hot = false;
+    if is_hot {
+        println!("It's hot!");
+    } else {
+        println!("It's not hot!");
+    }
+}

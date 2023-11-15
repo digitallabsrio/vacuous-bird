@@ -1,0 +1,4 @@
+fn main() {
+    let x: i32 = 4 + 5;
+    println!("4 + 5 == {}", x);
+}

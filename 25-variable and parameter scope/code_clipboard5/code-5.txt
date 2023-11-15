@@ -1,0 +1,9 @@
+fn main() {
+    let apples = 10;
+    println!("Before the block, I have {} apples", apples);
+    {
+        let apples = apples + 5;
+        println!("Inside the block, I have {} apples", apples);
+    }
+    println!("After the block, I have {} apples", apples);
+}

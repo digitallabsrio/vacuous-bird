@@ -1,0 +1,11 @@
+fn main() {
+    let current_year = 2020;
+    let birth_year = 1985;
+    let age = current_year - birth_year;
+    println!(
+        "In the year {}, you'll turn {} if you're born in {}",
+        current_year,
+        age,
+        birth_year,
+    );
+}

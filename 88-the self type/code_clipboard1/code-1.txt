@@ -1,0 +1,5 @@
+impl Fruit {
+    fn new() -> Self {
+        Self { apples: 10, bananas: 5 }
+    }
+}
